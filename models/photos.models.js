@@ -4,8 +4,8 @@ const base64ToBinary = (base64String) => {
     return Buffer.from(base64String, 'base64');
 };
 
-const __addPhoto = async (heroID, photo) => {
-    const photoBinary = base64ToBinary(base64Photo);
+const __addPhoto = async (heroID, base64photo) => {
+    const photoBinary = base64ToBinary(base64photo);
     await db('photos').insert({
         hero_id: heroID,
         photo: photoBinary
