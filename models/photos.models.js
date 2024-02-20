@@ -8,7 +8,7 @@ const __addPhoto = async (heroID, photo_url) => {
 };
 
 const __getPhotosByHeroID = async (heroID) => {
-    return db('photos').where('hero_id', heroID).select('photo');
+    return db('photos').where('hero_id', heroID).select('*');
 };
 
 const __updatePhoto = async (photoID, photo_url) => {

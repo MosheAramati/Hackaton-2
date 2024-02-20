@@ -1,5 +1,5 @@
 const { __addHero, __getAllHeroes, __getHeroById, __updateHero, __deleteHero } = require('../models/heroes.models');
-const { __addPhoto } = require('../models/photos.models');
+const { __addPhoto, __getPhotosByHeroID } = require('../models/photos.models');
 
 const addHero = async (req, res) => {
     if (!req.files || req.files.length === 0) {
@@ -16,7 +16,11 @@ const addHero = async (req, res) => {
 };
 
 const getAllHeroes = async (req, res) => {
-    res.json(await __getAllHeroes());
+    const heroes = await __getAllHeroes();
+    for (const hero of heroes) {
+        hero.photos = await __getPhotosByHeroID(hero.id)
+    }
+    res.json(heroes)
 };
 
 const getHeroByID = (req, res) => {
