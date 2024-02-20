@@ -1,20 +1,18 @@
 const { __addHero, __getAllHeroes, __getHeroById, __updateHero, __deleteHero } = require('../models/heroes.models');
 const { __addPhoto } = require('../models/photos.models');
 
-const addHero = (req, res) => {
+const addHero = async (req, res) => {
     if (!req.files || req.files.length === 0) {
         return res.status(400).send('No files uploaded');
     }
     const { name, aboutMe, hebrewName } = { ...req.body };
-    const newHero = __addHero(name, aboutMe, hebrewName);
+    const newHero = await __addHero(name, aboutMe, hebrewName);
     const newPhotos = [];
-    req.files.forEach(file => {
-        const newPhoto = __addPhoto(newHero.id, file.locations);
+    for (const file of req.files) {
+        const newPhoto = await __addPhoto(newHero.id, file.locations);
         newPhotos.push(newPhoto);
-    });
-
+    }
     res.json({ ...newHero, photos: newPhotos });
-
 };
 
 const getAllHeroes = (req, res) => {
