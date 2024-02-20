@@ -1,0 +1,143 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+}
+
+header {
+  background-color: #3366cc;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+}
+
+section {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in the width and height */
+}
+
+button {
+  background-color: #3366cc;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2554a7;
+}
+
+/* #opportunitiesContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#opportunitiesContainer h2 {
+  width: 100%;
+  text-align: center;
+}
+#description {
+  resize: none;
+}
+
+.opportunity {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  width: 45%;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  resize: none;
+}
+
+.opportunity p {
+  flex: 1;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup-button,
+.delete-button {
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-button {
+  background-color: #3366cc;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.delete-button {
+  background-color: #ff5050;
+  color: #fff;
+  align-self: flex-start;
+} */
+
+/* Add some styling for the signed-up opportunities section
+#signedUpOpportunities {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  #signedUpOpportunities {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .opportunity {
+    width: 100%;
+  }
+} */

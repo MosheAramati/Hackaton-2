@@ -1,0 +1,89 @@
+@import url('https://fonts.cdnfonts.com/css/sega-logo-font');
+
+
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;                                       
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 10vh 1fr; 
+    background-color: blueviolet;
+    background-image: url("./backround.png");
+   
+}
+
+p{
+    font-family: Consolas, monospace;
+}
+
+
+  #navBar {
+    font-family: 'SEGA LOGO FONT', sans-serif;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center; 
+    background-color: rgb(30, 233, 67);
+    background-image: url("./background2.png");
+    padding:  0px; 
+}
+
+  #input {
+   width:70vw;
+   height: 4vh;
+   background-color: rgb(199, 197, 197);
+   border: none;
+   border-radius: 4px;
+}
+  
+  #content {
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    grid-row-start: 2; 
+   
+}
+
+#card{
+    padding: 4vh ;
+    margin-bottom: 5px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+    width: 25vw;
+    border-radius: 5px; 
+    background-image: url("./background2.png");
+    background-color:rgb(0, 140, 255);
+    
+}
+
+#cardImage {
+    width: 25vw;
+    height: 22vw;
+    border-radius:10%;
+    margin-right: 2vw;
+    margin-top: 1vh;
+    background-color:rgb(23, 39, 50);
+    align-self: center
+}
+
+.popover-content {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1; /* Ensure the popover is on top */
+}
+.close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
