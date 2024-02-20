@@ -1,0 +1,12 @@
+###
+GET http://localhost:3001/api/heroes
+
+###
+POST http://localhost:3001/api/heroes
+Content-Type: application/json
+
+{
+  "name": "name",
+  "aboutMe": "aboutMe",
+  "hebrewName": "אנטון"
+}
