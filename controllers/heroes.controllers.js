@@ -15,8 +15,8 @@ const addHero = async (req, res) => {
     res.json({ ...newHero, photos: newPhotos });
 };
 
-const getAllHeroes = (req, res) => {
-    res.json(__getAllHeroes());
+const getAllHeroes = async (req, res) => {
+    res.json(await __getAllHeroes());
 };
 
 const getHeroByID = (req, res) => {

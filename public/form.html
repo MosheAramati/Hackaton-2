@@ -34,29 +34,27 @@
 <body>
 <!-- NAVBAR -->
     <nav>
-      <a href="landing_page.html">Home</a>
-      <a href="index2.html">Your Opportunities</a>
+      <a href="index.html">Home</a>
     </nav>
     <!-- CODE -->
     <header>
       <h1>Lets Remember Together</h1>
     </header>
 
-    <section id="opportunityFormSection">
+    <section id="addHeroForm">
       <h2>Post Your Hero</h2>
-      <form id="opportunityForm">
+      <form id="opportunityForm" action="/api/heroes/" method="post">
         <label for="name">Name:</label>
-        <input type="text" id="title" required />
+        <input type="text" id="name" name="name" required />
 
-        <label for="hebrew">Hebrew Name:</label>
-        <input type="text" id="title" required />
+        <label for="hebrewName">Hebrew Name:</label>
+        <input type="text" id="hebrewName" name="hebrewName" required />
 
-        <label for="description">About Hero:</label>
-        <textarea id="description" rows="4" required></textarea>
+        <label for="aboutMe">About Hero:</label>
+        <textarea id="aboutMe" name="aboutMe" rows="4" required></textarea>
 
-        <label for="image">Hero's photo:</label>
-        <input type="url" id="title" required />
-
+        <label for="photo">Hero's photo:</label>
+        <input type="file" id="photo" name="photo" required multiple/>
 
         <button type="submit">Post Hero</button>
       </form>
