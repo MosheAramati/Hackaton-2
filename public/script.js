@@ -1,7 +1,9 @@
-// What You Will Create
-// A Robo-Friends Search with Advanced Javascript
 
-// In this project you will have to create a robot website (you can use your own css to style your project):
+
+fetch("http://localhost:3001/api/heroes")
+.then(data => data.json())
+.then(obj=> console.log(obj))
+
 
 const robots = [
     {
