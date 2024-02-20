@@ -1,4 +1,4 @@
-const db = require('../config/db.js');
+const db = require('../config/pg.config.js');
 
 const __addHero = async (name, aboutMe, hebrewName) => {
     await db('heroes').insert({

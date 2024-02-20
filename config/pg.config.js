@@ -1,4 +1,4 @@
 const config = require('../knexfile'); // Adjust the path as necessary
-const db = require('knex')(config);
+const pgConfig = require('knex')(config);
 
-module.exports = db;
+module.exports = pgConfig;

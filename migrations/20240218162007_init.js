@@ -12,7 +12,7 @@ exports.up = function (knex) {
         })
         .createTable('photos', function (table) {
             table.increments('id').primary();
-            table.binary('photo', 255).notNullable();
+            table.string('photo', 1024).notNullable();
             table.integer('hero_id').unsigned().notNullable();
             table.foreign('hero_id').references('heroes.id').onDelete('CASCADE');
         });

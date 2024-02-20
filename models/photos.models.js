@@ -1,14 +1,9 @@
-const db = require('../config/db.js');
+const db = require('../config/pg.config.js');
 
-const base64ToBinary = (base64String) => {
-    return Buffer.from(base64String, 'base64');
-};
-
-const __addPhoto = async (heroID, base64photo) => {
-    const photoBinary = base64ToBinary(base64photo);
+const __addPhoto = async (heroID, photo_url) => {
     await db('photos').insert({
         hero_id: heroID,
-        photo: photoBinary
+        photo: photo_url
     });
 };
 
@@ -16,10 +11,9 @@ const __getPhotosByHeroID = async (heroID) => {
     return await db('photos').where('hero_id', heroID).select('photo');
 };
 
-const __updatePhoto = async (photoID, base64Photo) => {
-    const photoBinary = base64ToBinary(base64Photo);
+const __updatePhoto = async (photoID, photo_url) => {
     await db('photos').where('id', photoID).update({
-        photo: photoBinary
+        photo: photo_url
     });
 };
 
