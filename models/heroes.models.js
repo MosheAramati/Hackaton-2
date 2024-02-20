@@ -1,6 +1,6 @@
 const db = require('../config/pg.config.js');
 
-const __addHero = async (name, aboutMe, hebrewName) => {
+const __addHero = (name, aboutMe, hebrewName) => {
     return db('heroes').insert({
         name: name,
         about_me: aboutMe,
@@ -8,15 +8,15 @@ const __addHero = async (name, aboutMe, hebrewName) => {
     }, ['*']);
 };
 
-const __getAllHeroes = async () => {
+const __getAllHeroes = () => {
     return db('heroes').select('*');
 };
 
-const __getHeroById = async (heroID) => {
+const __getHeroById = (heroID) => {
     return db('heroes').select('*').where('id', heroID);
 };
 
-const __updateHero = async (heroID, name, aboutMe, hebrewName) => {
+const __updateHero = (heroID, name, aboutMe, hebrewName) => {
     return db('heroes').where('id', heroID).update({
         name: name,
         about_me: aboutMe,
@@ -24,7 +24,7 @@ const __updateHero = async (heroID, name, aboutMe, hebrewName) => {
     }, ['*']);
 };
 
-const __deleteHero = async (heroID) => {
+const __deleteHero = (heroID) => {
     return db('heroes').where('id', heroID).delete(['*']);
 };
 
