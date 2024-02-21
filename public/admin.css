@@ -103,6 +103,28 @@ button{
   
 }
 
+button.delete{
+  background-color: red;
+  color: rgb(210, 184, 147);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  cursor: pointer;
+  
+}
+
+button.upload{
+  background-color: green;
+  color: rgb(210, 184, 147);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  cursor: pointer;
+  
+}
+
 button a {
   color: inherit; 
   text-decoration: none; 

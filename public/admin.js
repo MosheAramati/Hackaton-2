@@ -5,18 +5,19 @@ function fetchHeros(){
   .then(obj=> resolve (obj))
   .catch(error => console.error('Error fetching robots:', error));})
 }
-function fetchHeros2(){
-  return new Promise( (resolve, reject) => {fetch("http://localhost:3001/api/heroes")
-  .then(data => data.json())
-  .then(obj=> resolve (obj))
-  .catch(error => console.error('Error fetching robots:', error));})
+
+function deleteHeros(id){
+  return new Promise( (resolve, reject) => {fetch(`http://localhost:3001/api/heroes/${id}`, {method: "delete"})
+  .catch(error => console.error('Error deleting hero:', error));})
 }
+function postHeros(id){
+  return new Promise( (resolve, reject) => {fetch(`http://localhost:3001/api/heroes/${id}`, {method: "put"})
+  .catch(error => console.error('Error posting hero', error));})
+}
+
 
 fetchHeros()
 .then(obj=>displayRobots(obj))
-
-fetchHeros2()
-.then(obj=>displayRobots2(obj))
 
 
 function displayRobots (heroes){
@@ -27,16 +28,32 @@ function displayRobots (heroes){
         }"  alt=""></div>
         <h2>${hero.name}</h2>
        
-        <button class="btn btn-primary"  onclick="openPopup('${hero.about_me}')" >About  me</button>
-        <button class="btn btn-primary"  onclick="openPopup('${hero.name_in_hebrew}')" >Pray for me </button>`;
+        <button class="delete"  onclick="deleteHeros(${hero.id})" >Delete</button>`;
+
+        const html2 = 
+        `<div ><img id="cardImage" src="${hero.photos[0].photo
+        }"  alt=""></div>
+        <h2>${hero.name}</h2>
+       
+        <button class="upload"  onclick="" >post </button>
+        <button class="delete"  onclick="deleteHeros(${hero.id})" >Delete</button>`;
 
         const newDiv = document.createElement('div');
         newDiv.id = 'card';
-        newDiv.innerHTML = html;
+
+        function selectHtml(){
+          if(hero.confirmed){
+            newDiv.innerHTML = html
+          }else{
+            newDiv.innerHTML = html2
+          }
+        }
+
+        selectHtml()
 
 
 
-        document.querySelector('#content2').appendChild(newDiv) 
+        document.querySelector('#content').appendChild(newDiv) 
         
     }
 }
@@ -54,27 +71,7 @@ function closePopup() {
   popoverContent.style.display = 'none';
 }
 
-function displayRobots2 (heroes){
-  for (const hero of heroes){
-    console.log(hero)
-      const html = 
-      `<div ><img id="cardImage" src="${hero.photos[0].photo
-      }"  alt=""></div>
-      <h2>${hero.name}</h2>
-     
-      <button class="btn btn-primary"  onclick="openPopup('${hero.about_me}')" >About  me</button>
-      <button class="btn btn-primary"  onclick="openPopup('${hero.name_in_hebrew}')" >Pray for me </button>`;
 
-      const newDiv = document.createElement('div');
-      newDiv.id = 'card';
-      newDiv.innerHTML = html;
-
-
-
-      document.querySelector('#content').appendChild(newDiv) 
-      
-  }
-}
 
 const input = document.querySelector('input')
 
