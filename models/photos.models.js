@@ -1,10 +1,11 @@
 const db = require('../config/pg.config.js');
 
 const __addPhoto = async (heroID, photo_url) => {
-    return db('photos').insert({
+    const addedPhotos = await db('photos').insert({
         hero_id: heroID,
         photo: photo_url
-    });
+    }).returning('*');
+    return addedPhotos[0]
 };
 
 const __getPhotosByHeroID = async (heroID) => {
