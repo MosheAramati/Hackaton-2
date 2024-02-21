@@ -24,6 +24,15 @@ const getAllHeroes = async (req, res) => {
     res.json(heroes);
 };
 
+const confirmHero = async (req, res) => {
+    const hero = await __getHeroById(Number(req.params.id))
+    const { id, name, about_me: aboutMe, hebrewName } = hero;
+    const updatedHero = await __updateHero(
+        id, name, aboutMe, hebrewName, true
+    )
+    res.json(updatedHero)
+}
+
 const getAllHeroesAdmin = async (req, res) => {
     const heroes = await __getAllHeroes();
     for (const hero of heroes) {
@@ -50,4 +59,4 @@ const deleteHeroByID = (req, res) => {
     res.json(deletedHero);
 };
 
-module.exports = { addHero, getAllHeroes, getHeroByID, updateHeroByID, deleteHeroByID, getAllHeroesAdmin };
+module.exports = { addHero, getAllHeroes, getHeroByID, updateHeroByID, deleteHeroByID, getAllHeroesAdmin, confirmHero };
