@@ -6,7 +6,7 @@ body {
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-rows: 10vh 1fr; 
+    grid-template-rows: 5vh 1fr; 
     background-color: rgb(255, 255, 255);
     background-image: url("wall-3231116.jpg");
     background-size: cover; 
@@ -14,15 +14,16 @@ body {
     background-repeat: repeat; 
     font-size: 20px;
 }
-
-  #navBar {
-    font-family: 'SEGA LOGO FONT', sans-serif;
-    display: flex;
-    justify-content:space-evenly;
-    align-items: center; 
-    
-    padding:  0px; 
+header {
+  font-family: 'SEGA LOGO FONT', sans-serif;
+  background-color:rgb(64, 66, 67);
+  color: #fff;
+  text-align: center;
+  padding: 0;
+  height: 10vh;
 }
+
+
 
   #input {
    width:70vw;
@@ -31,6 +32,8 @@ body {
    border: gray;
    border-radius: 4px;
    color: whitesmoke;
+   text-align: center; /* Center-align the text */
+
   
 }
   
@@ -40,7 +43,7 @@ input::placeholder {
 }
 
   #content {
-    margin: 30px;
+    margin-top: 15vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -60,7 +63,8 @@ input::placeholder {
     width: 25vw;
     border-radius: 7%; 
     background-color:rgb(210, 184, 147);
-    border: 2px solid black
+    border: 2px solid black;
+    /* margin-top: 10vh; */
     
 }
 

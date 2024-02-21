@@ -5,13 +5,12 @@ function fetchHeros(){
   .then(obj=> resolve (obj))
   .catch(error => console.error('Error fetching robots:', error));})
 }
-
 function deleteHeros(id){
   return new Promise( (resolve, reject) => {fetch(`http://localhost:3001/api/heroes/${id}`, {method: "delete"})
   .catch(error => console.error('Error deleting hero:', error));})
 }
 function postHeros(id){
-  return new Promise( (resolve, reject) => {fetch(`http://localhost:3001/api/heroes/${id}`, {method: "put"})
+  return new Promise( (resolve, reject) => {fetch(`http://localhost:3001/api/heroes/${id}`, {method: "put", body: JSON.stringify({confirmed:true}), headers:{'Content-Type':'application/json'}})
   .catch(error => console.error('Error posting hero', error));})
 }
 
@@ -31,11 +30,12 @@ function displayRobots (heroes){
         <button class="delete"  onclick="deleteHeros(${hero.id})" >Delete</button>`;
 
         const html2 = 
-        `<div ><img id="cardImage" src="${hero.photos[0].photo
+        `<div ><p>WATING FOR AUTORIZATION</p>
+        <img id="cardImage" src="${hero.photos[0].photo
         }"  alt=""></div>
         <h2>${hero.name}</h2>
        
-        <button class="upload"  onclick="" >post </button>
+        <button class="upload"  onclick="postHeros(${hero.id}) " >Upload</button>
         <button class="delete"  onclick="deleteHeros(${hero.id})" >Delete</button>`;
 
         const newDiv = document.createElement('div');
@@ -51,24 +51,9 @@ function displayRobots (heroes){
 
         selectHtml()
 
-
-
         document.querySelector('#content').appendChild(newDiv) 
         
     }
-}
-
-function openPopup(info) {
-  const popoverText = document.getElementById('popoverText');
-  popoverText.textContent = info;
-  
-  const popoverContent = document.getElementById('popoverContent');
-  popoverContent.style.display = 'block';
-}
-
-function closePopup() {
-  const popoverContent = document.getElementById('popoverContent');
-  popoverContent.style.display = 'none';
 }
 
 
