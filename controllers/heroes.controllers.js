@@ -54,8 +54,8 @@ const updateHeroByID = (req, res) => {
     res.json(updatedHero);
 };
 
-const deleteHeroByID = (req, res) => {
-    const deletedHero = __deleteHero(Number(req.params.id));
+const deleteHeroByID = async (req, res) => {
+    const deletedHero = await __deleteHero(Number(req.params.id));
     res.json(deletedHero);
 };
 

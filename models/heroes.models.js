@@ -32,8 +32,9 @@ const __updateHero = (heroID, name, aboutMe, hebrewName, confirmed=false) => {
     }, ['*']);
 };
 
-const __deleteHero = (heroID) => {
-    return db('heroes').where('id', heroID).delete(['*']);
+const __deleteHero = async (heroID) => {
+    const deletedHeroes = db('heroes').where('id', heroID).delete(['*']);
+    return deletedHeroes[0]
 };
 
 module.exports = {
