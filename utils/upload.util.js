@@ -9,15 +9,16 @@ const {s3} = require('../config/aws.s3.config.js')
 
 const upload = multer({
     storage: multerS3({
-        s3,
-        acl: "public-read",
+        s3: s3,
         bucket: process.env.S3_BUCKET_NAME,
-        contentType: multerS3.AUTO_CONTENT_TYPE,
-        key: (req, file, cb) => {
-            const fileName = `${Date.now()}_${Math.round(Math.random() * 1e9)}`;
-            cb(null, `${fileName}${path.extname(file.originalname)}`);
+        acl: 'public-read',
+        metadata: function (req, file, cb) {
+            cb(null, {fieldName: file.fieldname});
         },
-    }),
+        key: function (req, file, cb) {
+            cb(null, Date.now().toString() + '-' + file.originalname);
+        }
+    })
 });
 
 module.exports = { upload };
