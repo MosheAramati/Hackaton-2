@@ -1,0 +1,114 @@
+@import url('https://fonts.cdnfonts.com/css/sega-logo-font');
+
+
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;                                       
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 10vh 1fr; 
+    background-color: rgb(255, 255, 255);
+    background-image: url("wall-3231116.jpg");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: repeat; 
+    font-size: 20px;
+}
+
+  #navBar {
+    font-family: 'SEGA LOGO FONT', sans-serif;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center; 
+    
+    padding:  0px; 
+}
+
+  #input {
+   width:70vw;
+   height: 5vh;
+   background-color: rgb(64, 66, 67);
+   border: gray;
+   border-radius: 4px;
+   color: whitesmoke;
+  
+}
+  
+input::placeholder {
+  color: rgb(210, 184, 147); 
+  margin-left: 10px;
+}
+
+  #content {
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    grid-row-start: 2; 
+   
+}
+
+#card{
+    padding: 4vh ;
+    margin-bottom: 5px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 55vh;
+    width: 25vw;
+    border-radius: 7%; 
+    background-color:rgb(210, 184, 147);
+    border: 2px solid black
+    
+}
+
+#cardImage {
+    width: 24.5vw;
+    height: 22vw;
+    border-radius:7%;
+    margin-right: 2vw;
+    margin-top: 1vh;
+    background-color:rgb(23, 39, 50);
+    align-self: center;
+    border: 2px solid black
+}
+
+.popover-content {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(160, 139, 110);
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1; 
+}
+.close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+button{
+  background-color: rgb(54, 56, 57);
+  color: rgb(210, 184, 147);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  cursor: pointer;
+  
+}
+
+button a {
+  color: inherit; 
+  text-decoration: none; 
+}
+
+button a:hover {
+  color: inherit; 
+  text-decoration: none; 
+}
