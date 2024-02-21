@@ -26,9 +26,9 @@ const getAllHeroes = async (req, res) => {
 
 const confirmHero = async (req, res) => {
     const hero = await __getHeroById(Number(req.params.id))
-    const { id, name, about_me: aboutMe, hebrewName } = hero;
+    const { id, name, about_me, name_in_hebrew } = hero;
     const updatedHero = await __updateHero(
-        id, name, aboutMe, hebrewName, true
+        id, { confirmed:true }
     )
     res.json(updatedHero)
 }
@@ -45,12 +45,8 @@ const getHeroByID = (req, res) => {
     res.json(__getHeroById(Number(req.params.id)));
 };
 
-const updateHeroByID = (req, res) => {
-    if (!req.photo || req.photo.length === 0) {
-        return res.status(400).send('No files uploaded');
-    }
-    const { name, aboutMe, hebrewName } = { ...req.body };
-    const updatedHero = __updateHero(Number(req.params.id), name, aboutMe, hebrewName);
+const updateHeroByID = async (req, res) => {
+    const updatedHero = await __updateHero(Number(req.params.id), req.body);
     res.json(updatedHero);
 };
 
