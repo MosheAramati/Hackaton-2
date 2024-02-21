@@ -1,9 +1,30 @@
-###
+### Get all heroes
 GET http://localhost:3001/api/heroes
 
-###
+### GET all heroes with unconfirmed
+GET http://localhost:3001/api/heroes/admin
+
+
+### Confirm hero by id
 POST http://localhost:3001/api/heroes/admin/8
 Content-Type: application/json
 
-###
+### Delete hero by ID
 DELETE http://localhost:3001/api/heroes/10
+
+
+### Put method
+PUT http://localhost:3001/api/heroes/12
+Content-Type: application/json
+
+{
+  "confirmed": true
+}
+
+### Put method
+PUT http://localhost:3001/api/heroes/12
+Content-Type: application/json
+
+{
+  "confirmed": false
+}
