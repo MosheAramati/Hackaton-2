@@ -1,11 +1,12 @@
 const db = require('../config/pg.config.js');
 
-const __addHero = (name, aboutMe, hebrewName) => {
-    return db('heroes').insert({
+const __addHero = async (name, aboutMe, hebrewName) => {
+    const addedHeroes = await db('heroes').insert({
         name: name,
         about_me: aboutMe,
         name_in_hebrew: hebrewName
-    }, ['*']);
+    }).returning('*');
+    return addedHeroes[0]
 };
 
 const __getAllHeroes = () => {

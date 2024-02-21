@@ -9,18 +9,19 @@ const addHero = async (req, res) => {
     const newHero = await __addHero(name, aboutMe, hebrewName);
     const newPhotos = [];
     for (const file of req.files) {
-        const newPhoto = await __addPhoto(newHero.id, file.locations);
+        const newPhoto = await __addPhoto(newHero.id, file.location);
         newPhotos.push(newPhoto);
     }
-    res.json({ ...newHero, photos: newPhotos });
+    console.log({ ...newHero, photos: newPhotos });
+    res.redirect('/index.html');
 };
 
 const getAllHeroes = async (req, res) => {
     const heroes = await __getAllHeroes();
     for (const hero of heroes) {
-        hero.photos = await __getPhotosByHeroID(hero.id)
+        hero.photos = await __getPhotosByHeroID(hero.id);
     }
-    res.json(heroes)
+    res.json(heroes);
 };
 
 const getHeroByID = (req, res) => {
@@ -38,7 +39,7 @@ const updateHeroByID = (req, res) => {
 
 const deleteHeroByID = (req, res) => {
     const deletedHero = __deleteHero(Number(req.params.id));
-    res.json(deletedHero)
+    res.json(deletedHero);
 };
 
 module.exports = { addHero, getAllHeroes, getHeroByID, updateHeroByID, deleteHeroByID };
