@@ -26,9 +26,9 @@ const getAllHeroes = async (req, res) => {
 
 const confirmHero = async (req, res) => {
     const hero = await __getHeroById(Number(req.params.id))
-    const { id, name, about_me: aboutMe, hebrewName } = hero;
+    const { id, name, about_me, name_in_hebrew } = hero;
     const updatedHero = await __updateHero(
-        id, name, aboutMe, hebrewName, true
+        id, { name, about_me, name_in_hebrew, true }
     )
     res.json(updatedHero)
 }
@@ -46,8 +46,7 @@ const getHeroByID = (req, res) => {
 };
 
 const updateHeroByID = (req, res) => {
-    const { name, aboutMe, hebrewName, confirmed } = { ...req.body };
-    const updatedHero = __updateHero(Number(req.params.id), name, aboutMe, hebrewName);
+    const updatedHero = __updateHero(Number(req.params.id), req.body);
     res.json(updatedHero);
 };
 

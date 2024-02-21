@@ -23,13 +23,8 @@ const __getHeroById = async (heroID) => {
     return heroes[0]
 };
 
-const __updateHero = async (heroID, name, aboutMe, hebrewName, confirmed=false) => {
-    const updatedHeroes = await db('heroes').where('id', heroID).update({
-        name: name,
-        about_me: aboutMe,
-        name_in_hebrew: hebrewName,
-        confirmed: confirmed
-    }, ['*']);
+const __updateHero = async (heroID, data) => {
+    const updatedHeroes = await db('heroes').where('id', heroID).update(data, ['*']);
     return updatedHeroes[0]
 };
 
