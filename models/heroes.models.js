@@ -6,11 +6,16 @@ const __addHero = async (name, aboutMe, hebrewName) => {
         about_me: aboutMe,
         name_in_hebrew: hebrewName
     }).returning('*');
-    return addedHeroes[0]
+    return addedHeroes[0];
 };
 
-const __getAllHeroes = () => {
-    return db('heroes').select('*');
+const __getAllHeroes = (confirmedOnly) => {
+    if (confirmedOnly) {
+        return db('heroes').select('*').where({ confirmed: true });
+    } else {
+        return db('heroes').select('*');
+    }
+
 };
 
 const __getHeroById = (heroID) => {
@@ -35,4 +40,4 @@ module.exports = {
     __addHero,
     __updateHero,
     __deleteHero
-}
+};
