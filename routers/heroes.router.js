@@ -14,7 +14,7 @@ const router = express.Router();
 
 router.get('/', getAllHeroes);
 router.get('/admin/', getAllHeroesAdmin);
-router.post('/admin/:id', confirmHero)
+router.post('/admin/:id', confirmHero);
 router.get('/:id', getHeroByID);
 router.post('/', upload.array('photo'), addHero);
 router.put('/:id', updateHeroByID);
