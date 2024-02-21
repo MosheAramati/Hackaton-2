@@ -18,20 +18,23 @@ const __getAllHeroes = (confirmedOnly) => {
 
 };
 
-const __getHeroById = (heroID) => {
-    return db('heroes').select('*').where('id', heroID);
+const __getHeroById = async (heroID) => {
+    const heroes = await db('heroes').select('*').where('id', heroID);
+    return heroes[0]
 };
 
-const __updateHero = (heroID, name, aboutMe, hebrewName) => {
+const __updateHero = (heroID, name, aboutMe, hebrewName, confirmed=false) => {
     return db('heroes').where('id', heroID).update({
         name: name,
         about_me: aboutMe,
-        name_in_hebrew: hebrewName
+        name_in_hebrew: hebrewName,
+        confirmed: confirmed
     }, ['*']);
 };
 
-const __deleteHero = (heroID) => {
-    return db('heroes').where('id', heroID).delete(['*']);
+const __deleteHero = async (heroID) => {
+    const deletedHeroes = await db('heroes').where('id', heroID).delete(['*']);
+    return deletedHeroes[0]
 };
 
 module.exports = {

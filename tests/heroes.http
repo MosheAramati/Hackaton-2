@@ -2,11 +2,8 @@
 GET http://localhost:3001/api/heroes
 
 ###
-POST http://localhost:3001/api/heroes
+POST http://localhost:3001/api/heroes/admin/8
 Content-Type: application/json
 
-{
-  "name": "name",
-  "aboutMe": "aboutMe",
-  "hebrewName": "אנטון"
-}
+###
+DELETE http://localhost:3001/api/heroes/10
