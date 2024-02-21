@@ -33,7 +33,7 @@ const __updateHero = (heroID, name, aboutMe, hebrewName, confirmed=false) => {
 };
 
 const __deleteHero = async (heroID) => {
-    const deletedHeroes = db('heroes').where('id', heroID).delete(['*']);
+    const deletedHeroes = await db('heroes').where('id', heroID).delete(['*']);
     return deletedHeroes[0]
 };
 
