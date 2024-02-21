@@ -4,13 +4,15 @@ const {
     deleteHeroByID,
     getAllHeroes,
     getHeroByID,
-    updateHeroByID
+    updateHeroByID,
+    getAllHeroesAdmin
 } = require('../controllers/heroes.controllers');
-const { upload } = require('../utils/upload.util')
+const { upload } = require('../utils/upload.util');
 
 const router = express.Router();
 
 router.get('/', getAllHeroes);
+router.get('/admin/', getAllHeroesAdmin);
 router.get('/:id', getHeroByID);
 router.post('/', upload.array('photo'), addHero);
 router.put('/:id', updateHeroByID);

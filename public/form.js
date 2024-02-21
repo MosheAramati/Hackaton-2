@@ -1,5 +1,5 @@
 // opportunityForm.addEventListener("submit", function (event) {
-//   // event.preventDefault();
+//   event.preventDefault();
 //
 //   const name = document.getElementById("name").value;
 //   const hebrewName = document.getElementById("hebrewName").value;

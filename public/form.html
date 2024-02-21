@@ -5,32 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Volunteer Opportunities</title>
     <link rel="stylesheet" href="form.css"/>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #3366cc; /* Blue color */
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #2980b9; /* Darker blue color on hover */
+        }
+    </style>
+
 </head>
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
 
-    nav {
-        background-color: #3366cc; /* Blue color */
-        overflow: hidden;
-    }
-
-    nav a {
-        float: left;
-        display: block;
-        color: #fff;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    nav a:hover {
-        background-color: #2980b9; /* Darker blue color on hover */
-    }
-</style>
-</head>
 <body>
 <!-- NAVBAR -->
 <nav>
@@ -54,7 +56,7 @@
         <input type="text" id="hebrewName" name="hebrewName"/>
 
         <label for="photo">Hero's photo:</label>
-        <input type="file" id="photo" name="photo" multiple/>
+        <input type="file" id="photo" name="photo" multiple required/>
 
         <button type="submit">Post Hero</button>
     </form>
