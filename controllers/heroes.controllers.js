@@ -46,10 +46,7 @@ const getHeroByID = (req, res) => {
 };
 
 const updateHeroByID = (req, res) => {
-    if (!req.photo || req.photo.length === 0) {
-        return res.status(400).send('No files uploaded');
-    }
-    const { name, aboutMe, hebrewName } = { ...req.body };
+    const { name, aboutMe, hebrewName, confirmed } = { ...req.body };
     const updatedHero = __updateHero(Number(req.params.id), name, aboutMe, hebrewName);
     res.json(updatedHero);
 };

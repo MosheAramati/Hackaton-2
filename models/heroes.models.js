@@ -23,13 +23,14 @@ const __getHeroById = async (heroID) => {
     return heroes[0]
 };
 
-const __updateHero = (heroID, name, aboutMe, hebrewName, confirmed=false) => {
-    return db('heroes').where('id', heroID).update({
+const __updateHero = async (heroID, name, aboutMe, hebrewName, confirmed=false) => {
+    const updatedHeroes = await db('heroes').where('id', heroID).update({
         name: name,
         about_me: aboutMe,
         name_in_hebrew: hebrewName,
         confirmed: confirmed
     }, ['*']);
+    return updatedHeroes[0]
 };
 
 const __deleteHero = async (heroID) => {
