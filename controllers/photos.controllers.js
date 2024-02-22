@@ -4,8 +4,4 @@ const uploadPhoto = (req, res) => {
     }
 };
 
-// const deletePhoto = (req, res) => {
-//
-// }
-
 module.exports = { uploadPhoto, deletePhoto };

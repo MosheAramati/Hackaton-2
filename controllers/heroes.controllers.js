@@ -2,18 +2,21 @@ const { __addHero, __getAllHeroes, __getHeroById, __updateHero, __deleteHero } =
 const { __addPhoto, __getPhotosByHeroID } = require('../models/photos.models');
 
 const addHero = async (req, res) => {
-    if (!req.files || req.files.length === 0) {
-        return res.status(400).send('No files uploaded');
+    try {
+        if (!req.files || req.files.length === 0) {
+            return res.status(400).send('No files uploaded');
+        }
+        const { name, aboutMe, hebrewName } = { ...req.body };
+        const newHero = await __addHero(name, aboutMe, hebrewName);
+        const newPhotos = [];
+        for (const file of req.files) {
+            const newPhoto = await __addPhoto(newHero.id, file.location);
+            newPhotos.push(newPhoto);
+        }
+        res.json({ ok: true, data: { ...newHero, photos: newPhotos } });
+    } catch (e) {
+        res.json({ ok: false, msg: `There was error while adding new here to the database: ${e}`})
     }
-    const { name, aboutMe, hebrewName } = { ...req.body };
-    const newHero = await __addHero(name, aboutMe, hebrewName);
-    const newPhotos = [];
-    for (const file of req.files) {
-        const newPhoto = await __addPhoto(newHero.id, file.location);
-        newPhotos.push(newPhoto);
-    }
-    console.log({ ...newHero, photos: newPhotos });
-    res.redirect('/index.html');
 };
 
 const getAllHeroes = async (req, res) => {
@@ -26,7 +29,7 @@ const getAllHeroes = async (req, res) => {
 
 const confirmHero = async (req, res) => {
     const hero = await __getHeroById(Number(req.params.id))
-    const { id, name, about_me, name_in_hebrew } = hero;
+    const { id } = hero;
     const updatedHero = await __updateHero(
         id, { confirmed:true }
     )

@@ -1,36 +1,44 @@
-// opportunityForm.addEventListener("submit", function (event) {
-//   event.preventDefault();
-//
-//   const name = document.getElementById("name").value;
-//   const hebrewName = document.getElementById("hebrewName").value;
-//   const aboutMe = document.getElementById("aboutMe").value;
-//   const photo = document.getElementById("photo").value;
-//
-//
-//   localStorage.setItem("titleV", title);
-//   localStorage.setItem("descriptionV", description);
-//   localStorage.setItem("dateV", date);
-//   localStorage.setItem("timeV", time);
-//   localStorage.setItem("locationV", location);
-//
-//   const existingOpportunities =
-//     JSON.parse(localStorage.getItem("opportunities")) || [];
-//
-//   const newOpportunity = {
-//     title,
-//     description,
-//     date,
-//     time,
-//     location,
-//   };
-//
-//   existingOpportunities.push(newOpportunity);
-//
-//   localStorage.setItem("opportunities", JSON.stringify(existingOpportunities));
-//
-//   window.location.href = "index2.html";
-//
-//   opportunityForm.reset();
-// });
-//
-// // localStorage.clear();
+const errorMessage = document.getElementById('errorMessage');
+
+document.getElementById('opportunityForm')
+    .addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        errorMessage.textContent = '';
+
+        const formData = new FormData(e.target);
+
+        const response = await fetch('/api/heroes', {
+            method: 'post', body: formData
+        });
+        if (response.status === 200) {
+            const data = await response.json();
+            if (data.ok) {
+                window.location.href = '/index.html';
+            } else {
+                console.error('There was a problem with fetch operation:', data.msg);
+                errorMessage.textContent = 'There was a problem with fetch operation:' + data.msg;
+            }
+        } else {
+            console.error('There was a problem with fetch operation:', response.body);
+            errorMessage.textContent = 'There was a problem with fetch operation:' + response.body;
+        }
+    });
+
+document.getElementById('photos').addEventListener('change', (e) => {
+    errorMessage.textContent = '';
+    let allAreImages = true;
+    for (const file of e.target.files) {
+        if (!file.type.startsWith('image/')) {
+            allAreImages = false;
+            break;
+        }
+    }
+    if (allAreImages) {
+        console.log('All selected files are images.');
+    } else {
+        console.log('At least one selected file is not an image.');
+        errorMessage.textContent = 'Please select only image files.';
+        e.target.value = '';
+    }
+});
