@@ -16,8 +16,12 @@ function displayRobots (heroes){
         const html = 
         `<div ><img id="cardImage" src="${hero.photos[0].photo
         }"  alt=""></div>
+
+        <div id="cardContent">
+        <img id="candle" src="candle.png"  alt="">
         <h2>${hero.name}</h2>
-       
+        </div>
+        
         <button class="btn btn-primary"  onclick="openPopup('${hero.about_me}')" >About  me</button>
         <button class="btn btn-primary"  onclick="openPopup('${hero.name_in_hebrew}')" >Pray for me </button>`;
 

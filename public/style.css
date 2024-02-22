@@ -16,11 +16,12 @@ body {
 }
 header {
   font-family: 'SEGA LOGO FONT', sans-serif;
+  letter-spacing: 2.5px;
   background-color:rgb(64, 66, 67);
   color: #fff;
   text-align: center;
   padding: 0;
-  height: 10vh;
+  height: 12vh;
 }
 
 
@@ -33,13 +34,14 @@ header {
    border-radius: 4px;
    color: whitesmoke;
    text-align: center; /* Center-align the text */
+   margin-top: 15px;
 
   
 }
   
 input::placeholder {
-  color: rgb(210, 184, 147); 
-  margin-left: 10px;
+  color: #d7cfcf; 
+  margin-left: 0;
 }
 
   #content {
@@ -59,19 +61,19 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 55vh;
+    height: 62vh;
     width: 25vw;
-    border-radius: 7%; 
-    background-color:rgb(210, 184, 147);
+    border-radius: 15px; 
+    background-color:#d7cfcf;;
     border: 2px solid black;
     /* margin-top: 10vh; */
     
 }
 
 #cardImage {
-    width: 24.5vw;
+    width: 25vw;
     height: 22vw;
-    border-radius:7%;
+    border-radius:15px;
     margin-right: 2vw;
     margin-top: 1vh;
     background-color:rgb(23, 39, 50);
@@ -98,7 +100,7 @@ input::placeholder {
 }
 button{
   background-color: rgb(54, 56, 57);
-  color: rgb(210, 184, 147);
+  color:#d7cfcf;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -115,4 +117,19 @@ button a {
 button a:hover {
   color: inherit; 
   text-decoration: none; 
+}
+
+#candle {
+  margin-top: 10px;
+  width: 70px; /* Adjust the width to the desired size of the icon */
+   /* Adjust the height to the desired size of the icon */
+}
+
+#cardContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  padding: 0;
+
 }

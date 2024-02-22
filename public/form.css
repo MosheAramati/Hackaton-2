@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/sega-logo-font');
+
 body {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;                                       
   margin: 0;
@@ -29,6 +31,8 @@ nav a:hover {
 }
 
 header {
+  font-family: 'SEGA LOGO FONT', sans-serif;
+  letter-spacing: 2.5px;
   background-color:rgb(64, 66, 67);
   color: #fff;
   text-align: center;
@@ -79,7 +83,11 @@ button {
 }
 
 button:hover {
-  background-color: #2554a7;
+  background-color:rgba(0, 0, 0, 0.1);
+}
+
+#photo {
+  text-align-last: center; /* Center-align the text */
 }
 
 /* #opportunitiesContainer {

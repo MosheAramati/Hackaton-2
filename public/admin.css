@@ -35,7 +35,7 @@ body {
 }
   
 input::placeholder {
-  color: rgb(210, 184, 147); 
+  color:#d7cfcf; 
   margin-left: 10px;
 }
 
@@ -56,10 +56,10 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 62vh;
+    height: 65vh;
     width: 25vw;
-    border-radius: 7%; 
-    background-color:rgb(210, 184, 147);
+    border-radius: 15px; 
+    background-color:#d7cfcf;
     border: 2px solid black
     
 }
@@ -67,7 +67,7 @@ input::placeholder {
 #cardImage {
     width: 24.5vw;
     height: 22vw;
-    border-radius:7%;
+    border-radius:15px;
     margin-right: 2vw;
     margin-top: 1vh;
     background-color:rgb(23, 39, 50);
@@ -94,7 +94,7 @@ input::placeholder {
 }
 button{
   background-color: rgb(54, 56, 57);
-  color: rgb(210, 184, 147);
+  color:#d7cfcf;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -105,7 +105,7 @@ button{
 
 button.delete{
   background-color: red;
-  color: rgb(210, 184, 147);
+  color: #d7cfcf;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -116,7 +116,7 @@ button.delete{
 
 button.upload{
   background-color: green;
-  color: rgb(210, 184, 147);
+  color:#d7cfcf;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -135,6 +135,10 @@ button a:hover {
   text-decoration: none; 
 }
 
-p{
+#p{
   color: red;
+}
+
+#pAuto{
+  color: green;
 }

@@ -23,14 +23,15 @@ function displayRobots (heroes){
     for (const hero of heroes){
       console.log(hero)
         const html = 
-        `<div ><img id="cardImage" src="${hero.photos[0].photo
+        `<div ><p id="pAuto">AUTHORIZED</p>
+        <img id="cardImage" src="${hero.photos[0].photo
         }"  alt=""></div>
         <h2>${hero.name}</h2>
        
         <button class="delete"  onclick="deleteHeros(${hero.id})" >Delete</button>`;
 
         const html2 = 
-        `<div ><p>WATING FOR AUTORIZATION</p>
+        `<div ><p id="p">WATING FOR AUTORIZATION</p>
         <img id="cardImage" src="${hero.photos[0].photo
         }"  alt=""></div>
         <h2>${hero.name}</h2>
