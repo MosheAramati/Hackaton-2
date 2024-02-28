@@ -1,0 +1,16 @@
+The idea for the project is very nice, relevant and important.
+We must not forget our fallen brothers and sisters.
+Lets first talk about style and layout.
+The heros cards are a nice size, visually appealing and clear.
+The search functionality is fantastic too.
+When you search and there are no heros returned, it would be best to notify the user with some sort of text
+on the screen. Also notice how the "submit your hero" button goes all the way up instead of staying at the bottom.
+When you are searching maybe its also best to do a circular loading animation so the user knows you are searching, 
+maybe the loading animation can also be on the main screen when fetching the heros too .
+I would maybe also utilise a fade in animation for the cards to add some extra smoothness.
+The submit hero form is a great addition , as I saw in the example you submitted you had to press multiple times to be 
+redirected. I would fix that and also maybe send the user a message "Thanks for submitting , we will review your post ...".
+The admin panel is a great idea too. I would make this specifically password protected as it seems like there is 
+nothing stopping the rest of the users of going there too.
+Code structure is overall good. Routes , controllers and models.
+Excellent job utilising the image upload!!
